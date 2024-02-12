@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce8f5; /* Light pink background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            display: none; /* Initially hide the container */
+        }
+
+        h1 {
+            color: #ff3399; /* Pink color for the heading */
+        }
+
+        .flowers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .flowers img {
+            width: 200px; /* Larger size for the flowers */
+            margin: 20px; /* Increased margin for spacing */
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #ff3399; /* Pink color for the message */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Function to show the page after a delay
+        function showPage() {
+            document.querySelector('.container').style.display = 'block';
+        }
+
+        // Function to show the alert and conditionally show the page
+        function showAlert() {
+            var acceptMessage = confirm("Do you accept this message from Eli?");
+            if (acceptMessage) {
+                showPage(); // Show the page if "OK" is clicked
+            }
+        }
+
+        // Call showAlert after 3 seconds
+        setTimeout(showAlert, 3000);
+    </script>
+    
+    <div class="container">
+        <h1>Will You Be My Valentine, Greta?</h1>
+        <div class="flowers">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.kYlK-RT_72cPPOY0S7KROwHaE8&pid=Api&P=0&h=180" alt="Flower 1">
+            <img src="https://fyf.tac-cdn.net/images/products/large/F-587.jpg?auto=webp&quality=80&width=690" alt="Flower 2">
+            <img src="https://i5.walmartimages.com/asr/d79254ae-9faa-4023-8e38-f33bed629bc2_1.3aee3b8e3d332759650cf700561e08e6.jpeg" alt="Flower 3">
+            <!-- Add more flower images here -->
+        </div>
+        <p class="message">Excited to see you on the 22nd love</p>
+    </div>
+</body>
+</html>
