@@ -51,6 +51,48 @@
             color: #ff3399; /* Pink color for valentine text */
             margin-top: 20px; /* Spacing below heart */
         }
+
+        .confetti {
+            position: fixed; /* Fixed position to cover the entire viewport */
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Allows user interaction with elements below */
+            z-index: 9999; /* Ensure it's above other content */
+        }
+
+        .confetti:before, .confetti:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: #ff3399; /* Pink color for confetti */
+        }
+
+        .confetti:before {
+            width: 10px;
+            height: 10px;
+            top: 20%;
+            left: 60%;
+            animation: confetti-fall 5s infinite linear; /* Animation for falling effect */
+        }
+
+        .confetti:after {
+            width: 15px;
+            height: 15px;
+            top: 40%;
+            left: 80%;
+            animation: confetti-fall 5s infinite linear; /* Animation for falling effect */
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100vw, 100vh); /* Move confetti across the screen */
+            }
+        }
     </style>
 </head>
 <body>
@@ -84,5 +126,8 @@
         <span class="heart">&hearts;</span>
         <p class="valentine">Happy Valentine's Day!</p>
     </div>
+
+    <!-- Confetti animation -->
+    <div class="confetti"></div>
 </body>
 </html>
