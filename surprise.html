@@ -16,7 +16,6 @@
             text-align: center;
             margin-top: 50px;
             display: none; /* Initially hide the container */
-            position: relative; /* Set position to relative for border decorations */
         }
 
         h1 {
@@ -41,48 +40,58 @@
             color: #ff3399; /* Pink color for the message */
         }
 
-        .heart-border {
-            position: absolute; /* Position the heart border */
+        .heart {
+            font-size: 48px; /* Larger heart size */
+            color: red; /* Red heart color */
+            margin-top: 20px; /* Spacing below message */
+        }
+
+        .valentine {
+            font-size: 24px; /* Larger font size for valentine text */
+            color: #ff3399; /* Pink color for valentine text */
+            margin-top: 20px; /* Spacing below heart */
+        }
+
+        .confetti {
+            position: fixed; /* Fixed position to cover the entire viewport */
+            height: 100%;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensure it's behind other content */
+            pointer-events: none; /* Allows user interaction with elements below */
+            z-index: 9999; /* Ensure it's above other content */
         }
 
-        .heart-border img {
-            position: absolute; /* Position the heart images */
+        .confetti:before, .confetti:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: #ff3399; /* Pink color for confetti */
         }
 
-        .heart-border img:nth-child(odd) {
-            top: 0; /* Position odd-numbered heart images at the top */
+        .confetti:before {
+            width: 10px;
+            height: 10px;
+            top: 20%;
+            left: 60%;
+            animation: confetti-fall 5s infinite linear; /* Animation for falling effect */
         }
 
-        .heart-border img:nth-child(even) {
-            bottom: 0; /* Position even-numbered heart images at the bottom */
-            transform: rotate(180deg); /* Rotate even-numbered heart images */
+        .confetti:after {
+            width: 15px;
+            height: 15px;
+            top: 40%;
+            left: 80%;
+            animation: confetti-fall 5s infinite linear; /* Animation for falling effect */
         }
 
-        .flower-border {
-            position: absolute; /* Position the flower border */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensure it's behind other content */
-        }
-
-        .flower-border img {
-            position: absolute; /* Position the flower images */
-        }
-
-        .flower-border img:nth-child(odd) {
-            left: 0; /* Position odd-numbered flower images at the left */
-        }
-
-        .flower-border img:nth-child(even) {
-            right: 0; /* Position even-numbered flower images at the right */
-            transform: scaleX(-1); /* Flip even-numbered flower images horizontally */
+        @keyframes confetti-fall {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100vw, 100vh); /* Move confetti across the screen */
+            }
         }
     </style>
 </head>
@@ -106,14 +115,19 @@
     </script>
     
     <div class="container">
-        <div class="heart-border">
-            <img src="https://cdn.pixabay.com/photo/2018/10/30/16/06/heart-3781117_960_720.png" alt="Heart 1" style="top: 20px; left: 20px; width: 50px;">
-            <img src="https://cdn.pixabay.com/photo/2018/10/30/16/06/heart-3781117_960_720.png" alt="Heart 2" style="top: 60px; left: 60px; width: 50px;">
-            <!-- Add more heart images here -->
-        </div>
-        <div class="flower-border">
-            <img src="https://cdn.pixabay.com/photo/2013/07/12/18/04/flower-153222_960_720.png" alt="Flower 1" style="top: 20px; left: 20px; width: 50px;">
-            <img src="https://cdn.pixabay.com/photo/2013/07/12/18/04/flower-153222_960_720.png" alt="Flower 2" style="top: 60px; left: 60px; width: 50px;">
+        <h1>Will You Be My Valentine, Greta?</h1>
+        <div class="flowers">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.kYlK-RT_72cPPOY0S7KROwHaE8&pid=Api&P=0&h=180" alt="Flower 1">
+            <img src="https://fyf.tac-cdn.net/images/products/large/F-587.jpg?auto=webp&quality=80&width=690" alt="Flower 2">
+            <img src="https://i5.walmartimages.com/asr/d79254ae-9faa-4023-8e38-f33bed629bc2_1.3aee3b8e3d332759650cf700561e08e6.jpeg" alt="Flower 3">
             <!-- Add more flower images here -->
         </div>
-        <h1>Will You Be My Valentine, Greta?</h1
+        <p class="message">Excited to see you on the 22nd love</p>
+        <span class="heart">&hearts;</span>
+        <p class="valentine">Happy Valentine's Day!</p>
+    </div>
+
+    <!-- Confetti animation -->
+    <div class="confetti"></div>
+</body>
+</html>
